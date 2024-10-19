@@ -1,6 +1,6 @@
-#' Download GTFS files
+#' Download GTFS files from a shapefile
 #'
-#' This function downloads GTFS files from specified URLs and saves them to a specified directory.
+#' This function downloads GTFS files from a specified shapefile and saves them to a specified directory.
 #'
 #' @param urls A character vector of URLs to download GTFS files from.
 #' @param files A character vector of filenames corresponding to each URL.
@@ -9,7 +9,7 @@
 #'
 #' @return NULL
 #' @export
-download_GTFS <- function(urls, files, output_dir) {
+sf2GTFS <- function(urls, files, output_dir) {
   # Create the directory if it doesn't exist
   if (!dir.exists(output_dir)) {
     dir.create(output_dir, recursive = TRUE)  # Recursive = TRUE creates parent directories if necessary
