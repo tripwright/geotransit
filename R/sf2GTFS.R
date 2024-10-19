@@ -1,24 +1,39 @@
-#' Download GTFS files from a shapefile
+#' Download static GTFS files from a shapefile
 #'
-#' This function downloads GTFS files from a specified shapefile and saves them to a specified directory.
+#' This function downloads static GTFS files for all transit routes operating within a specified shapefile and saves them to directory.
 #'
-#' @param urls A character vector of URLs to download GTFS files from.
-#' @param files A character vector of filenames corresponding to each URL.
+#' @param shapefile A shapefile to download GTFS files from a specified geography.
 #' @param output_dir A character string specifying the directory to save the downloaded files.
-#' @param api_key Optional API key for accessing restricted URLs.
 #'
 #' @return NULL
 #' @export
-sf2GTFS <- function(urls, files, output_dir) {
+sf2GTFS <- function(shapefile, output_dir) {
+  # Load the GTFS dataframe
+  load(system.file("data/GTFS_df.rda", package = "geotransit"))
+
   # Create the directory if it doesn't exist
   if (!dir.exists(output_dir)) {
     dir.create(output_dir, recursive = TRUE)  # Recursive = TRUE creates parent directories if necessary
   }
 
-  # Iterate through each URL and download GTFS file
-  for (i in seq_along(urls)) {
-    url <- urls[i]
-    file <- files[i]
+  # Create bounding box from the urban area
+  bbox <- st_bbox(shapefile)
+  bbox_sf <- st_as_sfc(bbox) %>%
+    st_set_crs(st_crs(shapefile)) %>%
+    st_transform(crs = 4326)
+
+  # Filter routes whose bounding boxes intersect with the urban area bounding box
+    GTFS_filter <- GTFS_df %>%
+      filter(st_intersects(geometry, bbox_sf, sparse = FALSE))
+
+  # New column for URL. If 'urls.latest' is NA, replaces with values from 'URL'
+  #  GTFS_filter <- GTFS_filter %>%
+  #  mutate(urls = ifelse(is.na(urls.latest), URL, urls.latest))
+
+  # Iterate through each URL and download GTFS files
+  for (i in seq_len(nrow(GTFS_filter))) {
+    url <- GTFS_filter$url_latest[i]  # Adjust the column name as necessary
+    file <- GTFS_filter$id[i]  # Adjust the column name as necessary
     filename <- paste0(file, ".zip")  # Create filename based on provider column
 
     # Attempt to download without API key initially
@@ -58,3 +73,5 @@ sf2GTFS <- function(urls, files, output_dir) {
     })
   }
 }
+
+
