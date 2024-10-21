@@ -1,13 +1,14 @@
-#' Download static GTFS files from a shapefile
+#' Download static GTFS feeds from a simple features object
 #'
-#' This function downloads static GTFS files for all transit routes operating within a specified shapefile and saves them to directory.
+#' This function downloads static GTFS feeds for all transit routes operating
+#' within all of the geographies of a simple features (sf) class object and saves them to directory.
 #'
-#' @param shapefile A shapefile to download GTFS files from a specified geography.
+#' @param shapefile A shapefile to download GTFS feeds from a specified geography.
 #' @param output_dir A character string specifying the directory to save the downloaded files.
 #'
 #' @return NULL
 #' @export
-sf2GTFS <- function(shapefile, output_dir) {
+sf2GTFS <- function(sf, output_dir) {
   # Load the GTFS dataframe
   load(system.file("data/GTFS_df.rda", package = "geotransit"))
 
@@ -17,9 +18,9 @@ sf2GTFS <- function(shapefile, output_dir) {
   }
 
   # Create bounding box from the urban area
-  bbox <- st_bbox(shapefile)
+  bbox <- st_bbox(sf)
   bbox_sf <- st_as_sfc(bbox) %>%
-    st_set_crs(st_crs(shapefile)) %>%
+    st_set_crs(st_crs(sf)) %>%
     st_transform(crs = 4326)
 
   # Filter routes whose bounding boxes intersect with the urban area bounding box
