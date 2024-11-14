@@ -17,8 +17,11 @@ Imports:
     tidyverse
     httr
 <<<<<<< HEAD
+<<<<<<< HEAD
     sf (>= 1.0.12)
 =======
+=======
+>>>>>>> 9bc74aa (Changed imports.)
     sf >= (1.0.12)
 >>>>>>> ce71e90 (Changed imports.)
 Encoding: UTF-8
