@@ -2,7 +2,7 @@ library(tidyverse)
 library(sf)
 
 # Read the CSV file "GTFS_df.csv" into a data frame named GTFS_df
-GTFS_df <- read_csv("csv/GTFS_df.csv")
+GTFS_df <- read_csv("data-raw/csv/GTFS_df.csv")
 
 # Rename bounding box coord columns to simpler names
 # Filter the data frame keep rows where lon_min, lon_max, lat_min, and lat_max have values
