@@ -8,11 +8,9 @@
 #'
 #' @return NULL
 #' @export
-#'
-library(sf)
-library(httr)
-library(tidyverse)
-
+#' @importFrom sf st_as_sfc st_bbox st_crs st_intersects st_set_crs st_transform
+#' @importFrom httr GET http_status modify_url
+#' @importFrom dplyr %>% filter
 sf2GTFS <- function(sf_object, output_dir) {
   # Load the GTFS dataframe
   load(system.file("data/GTFS_df.rda", package = "geotransit"))
@@ -23,8 +21,8 @@ sf2GTFS <- function(sf_object, output_dir) {
   }
 
   # Create bounding box from the urban area
-  bbox <- st_bbox(sf)
-  bbox_sf <- st_as_sfc(bbox) %>%
+  bbox <- sf:st_bbox(sf)
+  bbox_sf <- sf:st_as_sfc(bbox) %>%
     st_set_crs(st_crs(sf)) %>%
     st_transform(crs = 4326)
 
