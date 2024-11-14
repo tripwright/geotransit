@@ -13,7 +13,7 @@
 #' @export
 sf2gtfs <- function(sf_object, output_dir) {
   # Load the GTFS dataframe
-  load(system.file("data/GTFS_df.rda", package = "geotransit"))
+  data("GTFS_df", package = "geotransit")
 
   # Create the directory if it doesn't exist
   if (!dir.exists(output_dir)) {
@@ -28,7 +28,7 @@ sf2gtfs <- function(sf_object, output_dir) {
 
   # Filter routes whose bounding boxes intersect with the urban area bounding box
     GTFS_filter <- GTFS_df %>%
-      filter(st_intersects(geometry, bbox_sf, sparse = FALSE))
+      filter(sapply(geometry, function(g) any(st_intersects(g, bbox_sf, sparse = FALSE))))
 
   # New column for URL. If 'urls.latest' is NA, replaces with values from 'URL'
   #  GTFS_filter <- GTFS_filter %>%
