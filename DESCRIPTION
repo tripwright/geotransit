@@ -16,7 +16,11 @@ Depends:
 Imports: 
     tidyverse
     httr
+<<<<<<< HEAD
     sf (>= 1.0.12)
+=======
+    sf >= (1.0.12)
+>>>>>>> ce71e90 (Changed imports.)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
