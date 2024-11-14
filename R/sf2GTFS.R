@@ -8,6 +8,11 @@
 #'
 #' @return NULL
 #' @export
+#'
+library(sf)
+library(httr)
+library(tidyverse)
+
 sf2GTFS <- function(sf_object, output_dir) {
   # Load the GTFS dataframe
   load(system.file("data/GTFS_df.rda", package = "geotransit"))
