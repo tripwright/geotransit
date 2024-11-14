@@ -11,7 +11,7 @@
 #' @importFrom sf st_as_sfc st_bbox st_crs st_intersects st_set_crs st_transform
 #' @importFrom httr GET http_status modify_url timeout content
 #' @importFrom dplyr %>% filter
-sf2GTFS <- function(sf_object, output_dir) {
+sf2gtfs <- function(sf_object, output_dir) {
   # Load the GTFS dataframe
   load(system.file("data/GTFS_df.rda", package = "geotransit"))
 

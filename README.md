@@ -36,15 +36,15 @@ This package simplifies workflows for users interested in analyzing public trans
 
 ## Quick Start {#quick-start}
 
-To start using `geotransit`, load the package and specify a geographic region as an `sf` object. Use the `sf2GTFS()` function to retrieve GTFS feeds for transit routes within your defined area.
+To start using `geotransit`, load the package and specify a geographic region as an `sf` object. Use the `sf2gtfs()` function to retrieve GTFS feeds for transit routes within your defined area.
 
 ## Main Functions {#main-functions}
 
--   **`sf2GTFS()`**: Downloads GTFS feeds for all transit routes within a specified geographic region defined by an `sf` object. Saves the feeds to a designated directory.
+-   **`sf2gtfs()`**: Downloads GTFS feeds for all transit routes within a specified geographic region defined by an `sf` object. Saves the feeds to a designated directory.
 
 ## Example Usage {#example-usage}
 
-Here is a quick example using `sf2GTFS()` to download GTFS data for a specified area.
+Here is a quick example using `sf2gtfs()` to download GTFS data for a specified area.
 
 ``` r
 # Load libraries
@@ -58,7 +58,7 @@ my_area <- st_read("path/to/shapefile.shp")
 output_directory <- "path/to/save/gtfs/files"
 
 # Download GTFS feeds for the defined area
-sf2GTFS(my_area, output_directory)
+sf2gtfs(my_area, output_directory)
 ```
 
 ## Contributing {#contributing}
