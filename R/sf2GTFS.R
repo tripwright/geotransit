@@ -9,7 +9,7 @@
 #' @return NULL
 #' @export
 #' @importFrom sf st_as_sfc st_bbox st_crs st_intersects st_set_crs st_transform
-#' @importFrom httr GET http_status modify_url
+#' @importFrom httr GET http_status modify_url timeout content
 #' @importFrom dplyr %>% filter
 sf2GTFS <- function(sf_object, output_dir) {
   # Load the GTFS dataframe
@@ -21,9 +21,9 @@ sf2GTFS <- function(sf_object, output_dir) {
   }
 
   # Create bounding box from the urban area
-  bbox <- sf:st_bbox(sf)
-  bbox_sf <- sf:st_as_sfc(bbox) %>%
-    st_set_crs(st_crs(sf)) %>%
+  bbox <- st_bbox(sf_object)
+  bbox_sf <- st_as_sfc(bbox) %>%
+    st_set_crs(st_crs(sf_object)) %>%
     st_transform(crs = 4326)
 
   # Filter routes whose bounding boxes intersect with the urban area bounding box
@@ -77,5 +77,3 @@ sf2GTFS <- function(sf_object, output_dir) {
     })
   }
 }
-
-

@@ -1,6 +1,6 @@
 Package: geotransit
 Title: Tools for Geographic and Transportation Data
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Trip", "Wright", , "tripwright8@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0009-6559-7710"))
@@ -14,7 +14,7 @@ BugReports: https://github.com/tripwright/geotransit/issues
 Depends:
     R (>= 3.6)
 Imports: 
-    tidyverse,
+    dplyr,
     httr,
     sf (>= 1.0.12)
 Encoding: UTF-8
