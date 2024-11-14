@@ -6,7 +6,7 @@
 #' @format ## `GTFS_df`
 #' A data frame with 1,562 rows and 18 columns:
 #' \describe{
-#'   \item{country}{Country code of the service location}
+#'   \item{country}{Country of the service location}
 #'   \item{region}{Region or subdivision name where the service is provided}
 #'   \item{city}{Municipality of the service location}
 #'   \item{provider}{The name of the transportation agency}
@@ -14,7 +14,7 @@
 #'   \item{id}{Unique identifier for the transit feed}
 #'   \item{contact}{Contact email for the transit feed provider}
 #'   \item{url_source}{Source URL to the website where the GTFS feed lives}
-#'   \item{url_latest}{URL for the latest GTFS feed data}
+#'   \item{url_latest}{URL for the latest GTFSf feed data}
 #'   \item{url_authenticate}{Information on authentication requirements (API keys, etc.)}
 #'   \item{license}{License information for the GTFS data}
 #'   \item{lat_min}{Minimum latitude of the service area bounding box}
