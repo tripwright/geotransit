@@ -3,7 +3,7 @@
 #' This function downloads static GTFS feeds for all transit routes operating
 #' within all of the geographies of a simple features (sf) class object and saves them to directory.
 #'
-#' @param shapefile A shapefile to download GTFS feeds from a specified geography.
+#' @param sf_object An sf class object representing the area(s) of interest.
 #' @param output_dir A character string specifying the directory to save the downloaded files.
 #'
 #' @return NULL
