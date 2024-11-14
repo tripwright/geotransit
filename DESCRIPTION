@@ -14,8 +14,8 @@ BugReports: https://github.com/tripwright/geotransit/issues
 Depends:
     R (>= 3.6)
 Imports: 
-    tidyverse
-    httr
+    tidyverse,
+    httr,
     sf (>= 1.0.12)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
