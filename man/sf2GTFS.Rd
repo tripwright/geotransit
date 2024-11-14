@@ -2,19 +2,16 @@
 % Please edit documentation in R/sf2GTFS.R
 \name{sf2GTFS}
 \alias{sf2GTFS}
-\title{Download GTFS files from a shapefile}
+\title{Download static GTFS feeds from a simple features object}
 \usage{
-sf2GTFS(urls, files, output_dir)
+sf2GTFS(sf, output_dir)
 }
 \arguments{
-\item{urls}{A character vector of URLs to download GTFS files from.}
-
-\item{files}{A character vector of filenames corresponding to each URL.}
-
 \item{output_dir}{A character string specifying the directory to save the downloaded files.}
 
-\item{api_key}{Optional API key for accessing restricted URLs.}
+\item{sf_object}{An sf class object representing the area(s) of interest.}
 }
 \description{
-This function downloads GTFS files from a specified shapefile and saves them to a specified directory.
+This function downloads static GTFS feeds for all transit routes operating
+within all of the geographies of a simple features (sf) class object and saves them to directory.
 }
