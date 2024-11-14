@@ -4,12 +4,12 @@
 \alias{sf2GTFS}
 \title{Download static GTFS feeds from a simple features object}
 \usage{
-sf2GTFS(sf, output_dir)
+sf2GTFS(sf_object, output_dir)
 }
 \arguments{
-\item{output_dir}{A character string specifying the directory to save the downloaded files.}
-
 \item{sf_object}{An sf class object representing the area(s) of interest.}
+
+\item{output_dir}{A character string specifying the directory to save the downloaded files.}
 }
 \description{
 This function downloads static GTFS feeds for all transit routes operating
