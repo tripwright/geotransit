@@ -1,18 +1,28 @@
 #' General Transit Feed Specification (GTFS) Dataset
 #'
-#' This dataset contains information about GTFS files from various
-#' public transportation agencies around the world, including URLs for downloading
-#' static GTFS data.
+#' This dataset contains information about GTFS files from various public transportation
+#' agencies around the world, including URLs for downloading static GTFS data.
 #'
 #' @format ## `GTFS_df`
-#' A data frame with 1,846 rows and 8 columns:
+#' A data frame with 1,562 rows and 18 columns:
 #' \describe{
+#'   \item{country}{Country code of the service location}
+#'   \item{region}{Region or subdivision name where the service is provided}
+#'   \item{city}{Municipality of the service location}
 #'   \item{provider}{The name of the transportation agency}
-#'   \item{location}{The location of the service provided}
-#'   \item{urls.latest}{URL for the latest GTFS feed data}
-#'   \item{urls.URL}{Alternative URL for the GTFS feed data}
-#'   \item{urls.authentication_info}{Information about authentication requirements (API keys, etc.)}
-#'   \item{data_type}{The type of GTFS data available (either "gtfs" for static or "gtfs-rt" for real-time)}
+#'   \item{name}{Specific name of the transit feed, if applicable}
+#'   \item{id}{Unique identifier for the transit feed}
+#'   \item{contact}{Contact email for the transit feed provider}
+#'   \item{url_source}{Source URL to the website where the GTFS feed lives}
+#'   \item{url_latest}{URL for the latest GTFS feed data}
+#'   \item{url_authenticate}{Information on authentication requirements (API keys, etc.)}
+#'   \item{license}{License information for the GTFS data}
+#'   \item{lat_min}{Minimum latitude of the service area bounding box}
+#'   \item{lat_max}{Maximum latitude of the service area bounding box}
+#'   \item{lon_min}{Minimum longitude of the service area bounding box}
+#'   \item{lon_max}{Maximum longitude of the service area bounding box}
+#'   \item{status}{Current status of the GTFS feed (e.g., active or inactive)}
+#'   \item{features}{Additional features available in the GTFS data (e.g., "bikes_allowed")}
 #'   \item{geometry}{Geospatial data representing the service area}
 #' }
 #' @source Mobility Database via <https://bit.ly/catalogs-csv>
