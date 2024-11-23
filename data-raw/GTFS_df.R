@@ -43,4 +43,4 @@ select(location.country_code, location.subdivision_name, location.municipality,
        license = urls.license, lat_min = lat_min, lat_max = lat_max, lon_min = lon_min,
        lon_max = lon_max, status = status, features = features, geometry = geometry)
 
-usethis::use_data(GTFS_df, overwrite = TRUE)
+usethis::use_data(GTFS_df, overwrite = TRUE, compress = "xz")
