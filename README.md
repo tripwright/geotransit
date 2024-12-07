@@ -12,7 +12,7 @@ GeoTransit is an R package designed to simplify working with geographic and tran
 -   [Contributing](#contributing)
 -   [License](#license)
 
-## Installation {#installation}
+## Installation
 
 You can install the development version of `geotransit` directly from GitHub:
 
@@ -24,7 +24,7 @@ install.packages("devtools")
 devtools::install_github("tripwright/geotransit")
 ```
 
-## Overview {#overview}
+## Overview
 
 The `geotransit` package provides tools for:
 
@@ -34,15 +34,15 @@ The `geotransit` package provides tools for:
 
 This package simplifies workflows for users interested in analyzing public transportation systems, accessibility, and urban infrastructure planning.
 
-## Quick Start {#quick-start}
+## Quick Start
 
 To start using `geotransit`, load the package and specify a geographic region as an `sf` object. Use the `sf2gtfs()` function to retrieve GTFS feeds for transit routes within your defined area.
 
-## Main Functions {#main-functions}
+## Main Functions
 
 -   **`sf2gtfs()`**: Downloads GTFS feeds for all transit routes within a specified geographic region defined by an `sf` object. Saves the feeds to a designated directory.
 
-## Example Usage {#example-usage}
+## Example Usage
 
 Here is a quick example using `sf2gtfs()` to download GTFS data for a specified area.
 
@@ -61,11 +61,11 @@ output_directory <- "path/to/save/gtfs/files"
 sf2gtfs(my_area, output_directory)
 ```
 
-## Contributing {#contributing}
+## Contributing
 
 Contributions to GeotTransit are welcome! Please open an issue if you encounter any problems or have feature suggestions, and feel free to submit pull requests.
 
-## License {#license}
+## License
 
 This package is licensed under the GPL-3 license.
 
